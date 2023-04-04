@@ -7,7 +7,7 @@ inputs: #값을 입력하는 것
     description: 'Enter a number'
     required: true #값을 입력해야 하는구나 라는 것을 알 수 있다.
     default: "1" #고정값
-ouputs: #출력받는 것
+outputs: #출력받는 것
   num_squared:
     description: 'Square of the input'
     # need to specify the extra 'value' field for 'composite' actions #composite은 어떻게 묶을지 덩어리를 만드는 
