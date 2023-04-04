@@ -14,4 +14,4 @@ else:
   num = 1
 
 # to set output, print to shell in following syntax
-print(f"::set-output name=num_squared::{num ** 2}") #::set-output name은 함수 실행 후 나온 값을 action.yml 파일로 넘기기 위한 함수
+print(f"::set-output name=num_squared::{num ** 2}") #::set-output name은 함수 실행 후 나온 값을 action.yml 파일로 넘기기 위한 형식
