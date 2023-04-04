@@ -1,5 +1,5 @@
 name: Test Action
-on: [push] #배열로 씀
+on: [push] 
 
 jobs:
   get-num-square:
@@ -7,7 +7,7 @@ jobs:
     name: Returns the number square
     steps:
       - name: Checkout
-        uses: action/checkout@v4
+        uses: actions/checkout@v2
       - name: Fetch the num's squared
         id: get_square
         uses: ./ # Uses an action in the root directory
