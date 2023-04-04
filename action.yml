@@ -1,0 +1,32 @@
+# 액션파일 만드는 이유:입력과 출력을 동적으로 만들려고
+# action.yaml
+name : 'Custom GitHub Action'
+description: 'A GitHub Action that takes an input and returns the square of the number' #어떤 작동을 하는지 묘사
+inputs: #값을 입력하는 것
+  num:
+    description: 'Enter a number'
+    required: true #값을 입력해야 하는구나 라는 것을 알 수 있다.
+    default: "7" #고정값
+ouputs: #출력받는 것
+  num_squared:
+    description: 'Sqeuar of the input'
+    # need to specify the extra 'value' field for 'composite' actions #composite은 어떻게 묶을지 덩어리를 만드는 
+    value: ${{ steps.get-square.outputs.num_squared}} #실행에 따른 결과값의 형식 지정,
+runs: #실행하는 부분을 쉘을 이용하겠다.
+  using: 'composite'
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install Dependencies
+      run: pip install -3 requirments.txt
+      shell: bash
+    - name: Pass Inputs to Shell
+      run: |
+        echo "INPUT_NUM=${{ inputs.num }}" >> $ GITHUB_ENV #실행한 값을 변수로 받아옴
+      shell: bash
+    - name: Fetch the number's square
+      id: get-square
+      run: python src/get_num_square.py
+      shell: bash
