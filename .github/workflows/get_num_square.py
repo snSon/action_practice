@@ -3,7 +3,7 @@
 import os
 
 # get the input and convert it to int
-num = os.environ.get(INPUT_NUM) #action.yml 파일의 변수를 불러옴
+num = os.environ.get("INPUT_NUM") #action.yml 파일의 변수를 불러옴
 if num:
   try:
     num = int(num)
